@@ -35,15 +35,15 @@ const HotelHome = () => {
   return (
     <div className="p-3" style={{height: "100vh", width: "95vw", borderRadius: '10px', margin: 'auto', textAlign: 'center', overflow: 'hidden', padding: '1px'}}>
       <div>
-        <marquee behavior="scroll" direction="left" scrollamount="10"><h4>Welcome to Hotel <span>{data}</span> Dashboard! Stay on top of today’s bookings, manage the menu, and track customer orders—all in one place. Let's make today a great service experience!</h4></marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="10"><h3>Welcome to Restaurant <span>{data}</span> Dashboard! Stay on top of today's bookings, you can manage the menu, and track customer orders-all at this place. Let's make today a good service experience!</h3></marquee>
       </div>
       <div className='row justify-content-md-center mt-3 p-3 bg-light text-dark'>
         <div className="col-3 border border-3 border-dark bg-secondary d-flex flex-column justify-content-evenly p-2 position-sticky top-0" style={{ height: '40vh', position: 'sticky', top: '0' }}>
-          <button className='m-1 rounded rounded-3 p-1' onClick={() => handleButtonClick('dishes')}>All Dishes</button>
+          <button className='m-1 rounded rounded-3 p-1' onClick={() => handleButtonClick('dishes')}>All Itmes</button>
           <button className='m-1 rounded rounded-3 p-1' onClick={() => handleButtonClick('orders')}>Today's Orders</button>
-          <button className='m-1 rounded rounded-3 p-1' onClick={() => handleButtonClick('orderHistory')}>Order History</button>
-          <button className='m-1 rounded rounded-3 p-1' onClick={() => handleButtonClick('addItem')}>Add item</button>
-          <button className='m-1 rounded rounded-3 p-1' onClick={() => handleButtonClick('hotelInfo')}>Hotel Info</button>
+          <button className='m-1 rounded rounded-3 p-1' onClick={() => handleButtonClick('orderHistory')}>History</button>
+          <button className='m-1 rounded rounded-3 p-1' onClick={() => handleButtonClick('addItem')}>Add Item</button>
+          <button className='m-1 rounded rounded-3 p-1' onClick={() => handleButtonClick('hotelInfo')}> Restaurant Info</button>
         </div>
         <div className='col-9  border border-3 border-primary bg-success' id="right" style={{height: '100vh', overflowY: 'auto', padding: '10px', }}> 
           {showDishes && <AllDishes />}

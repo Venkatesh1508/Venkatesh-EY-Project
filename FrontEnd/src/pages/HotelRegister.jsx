@@ -61,12 +61,12 @@ const HotelRegister = () => {
   };
 
   return (
-    <div style={{ padding: '20px', margin: '50px auto', width: '400px', backgroundColor: 'rgba(164, 206, 238, 0.8)', borderRadius: '15px', boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.2)', fontFamily: 'Arial, sans-serif', textAlign: 'center' }}>
-      <div style={{ backgroundColor: 'rgba(46, 164, 37, 0.8)', padding: '15px 0', borderRadius: '15px 15px 0 0', marginBottom: '20px' }}>
-        <h1 style={{ color: 'white', margin: 0 }}>Hotel Registration</h1>
+    <div style={{ padding: '20px', margin: '50px auto', width: '400px', backgroundColor: 'rgba(71, 222, 164, 0.8)', borderRadius: '15px', boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.2)', fontFamily: 'Arial, sans-serif', textAlign: 'center' }}>
+      <div style={{ backgroundColor: 'rgba(155, 235, 141, 0.8)', padding: '15px 0', borderRadius: '15px 15px 0 0', marginBottom: '20px' }}>
+        <h1 style={{ color: 'white', margin: 0 }}>Restaurant Registration</h1>
       </div>
 
-      <div style={{ padding: '20px', backgroundColor: 'rgba(241, 249, 255, 0.9)', borderRadius: '0 0 15px 15px' }}>
+      <div style={{ padding: '20px', backgroundColor: 'rgba(165, 243, 195, 0.9)', borderRadius: '0 0 15px 15px' }}>
         {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
         <form onSubmit={submitHandler} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 

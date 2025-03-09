@@ -1,37 +1,30 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import {useUser} from "../UserContext"
 
 const UserLogin = () => {
 
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
-
+    const {login} = useUser()
     const navigate = useNavigate()
 
     const submitHandler = async (e) => {
         e.preventDefault()
-
         try{
             const res = await axios.post('http://localhost:5000/user-login',{email,password})
-            localStorage.setItem("Username",res.data.username)
-            navigate('/user-home')
+            if (res.data){
+                login({
+                    email : res.data.user.email,
+                    role : "user"
+                })
+            }
+            navigate("/user-home")
+
         } catch (error){
             alert("Invalid Username or Password")
         }
-
-        // const userdata = {
-        //     email: email,
-        //     password: password
-        // }
-
-        // var data = JSON.parse(localStorage.getItem('userdata'))
-
-        // if (data && data.email === userdata.email && data.password === userdata.password) {
-        //     navigate('/user-home')
-        // } else {
-        //     alert('Invalid Email or Password')
-        // }
     }
 
     return (
@@ -51,11 +44,11 @@ const UserLogin = () => {
                 borderRadius: '15px 15px 0 0',
                 marginBottom: '20px'
             }}>
-                <h1 style={{ color: 'white', margin: 0 }}>User Login</h1>
+                <h1 style={{ color: 'white', margin: 0 }}>Customer Login</h1>
             </div>
             <div style={{
                 padding: '20px',
-                backgroundColor: `rgba(241, 249, 255, 0.9)`,
+                backgroundColor: `rgba(245, 255, 241, 0.9)`,
                 borderRadius: '0 0 15px 15px'
             }}>
                 <form onSubmit={(e) => { submitHandler(e) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -83,7 +76,7 @@ const UserLogin = () => {
                                 flex: 1
                             }}
                             type="email"
-                            placeholder='sample@gmail.com'
+                            placeholder='abc@gmail.com'
                             value={email}
                             onChange={(e) => setemail(e.target.value)}
                         />
@@ -158,7 +151,7 @@ const UserLogin = () => {
                         fontSize: '16px'
                     }}>
                         <Link to='/hotel-login' style={{ textDecoration: 'none', color: 'black' }}>
-                            Hotel Login
+                            Restaurant Login
                         </Link>
                     </button>
                 </div>

@@ -1,7 +1,9 @@
 import React,{useState} from 'react'
 import axios from 'axios'
+import { useUser } from '../UserContext';
 
 const AddDish = () => {
+  const {user} = useUser();
   const [dishName, setDishName] = useState('');
   const [dishPrice, setDishPrice] = useState('');
   const [file, setFile] = useState(null);
@@ -22,6 +24,7 @@ const AddDish = () => {
     }
 
     const formData = new FormData();
+    formData.append("hotelEmail", user.email);
     formData.append('name', dishName);
     formData.append('price', dishPrice);
     formData.append('image', file);
@@ -32,7 +35,10 @@ const AddDish = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
-      alert('Dish added successfully!');
+      alert(res.data.message);
+      setDishName("");
+      setDishPrice("");
+      setFile(null);
     } catch (err) {
       alert('Error adding dish');
     }
@@ -40,19 +46,19 @@ const AddDish = () => {
   return (
     <div>
       <div className='container p-3 m-1'>
-        <h1 className='fs-1 text-white mb-4'>Add details of Dish </h1>
+        <h1 className='fs-1 text-white mb-4'>Add details of Item </h1>
       </div>
       <form onSubmit={submitHandler}>
       <div className="mb-3 d-flex flex-row p-2 fluid">
-          <h4 className='fs-5'>Enter image of your dish : </h4>
+          <h4 className='fs-5'>Enter image of your Item : </h4>
           <input type="file" class="form-control" id="inputGroupFile02" onChange={handleFileChange} required/>
         </div>
         <div className="mb-3 d-flex flex-row p-2">
-          <h4 className='fs-5'>Enter name of your dish : </h4>
+          <h4 className='fs-5'>Enter name of your Item : </h4>
           <input className='m-1 w-100 fs-6' type="text" placeholder='Name of Dish' value={dishName} onChange={(e)=>setDishName(e.target.value)} required/>
         </div>
         <div className="mb-3 d-flex flex-row p-2">
-          <h4 className='fs-5'>Enter price of your dish : </h4>
+          <h4 className='fs-5'>Enter amount of your Item : </h4>
           <input className='m-1 w-100 fs-6' type="number" placeholder='Price of Dish' value={dishPrice} onChange={(e)=>setDishPrice(e.target.value)}/>
         </div>
         <div className="mb-3">

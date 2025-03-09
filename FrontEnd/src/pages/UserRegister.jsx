@@ -42,7 +42,7 @@ const UserRegister = () => {
                 borderRadius: '15px 15px 0 0',
                 marginBottom: '20px'
             }}>
-                <h1 style={{ color: 'white', margin: 0 }}>User Registration</h1>
+                <h1 style={{ color: 'white', margin: 0 }}>Customer Registration</h1>
             </div>
             <div style={{
                 padding: '20px',
@@ -179,7 +179,7 @@ const UserRegister = () => {
                         fontSize: '16px'
                     }}>
                         <Link to='/hotel-register' style={{ textDecoration: 'none', color: 'black' }}>
-                            Hotel Registration
+                            Restaurant Registration
                         </Link>
                     </button>
                 </div>
